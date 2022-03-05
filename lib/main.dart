@@ -1,8 +1,7 @@
-
+// @dart=2.9
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_colored_progress_indicators/flutter_colored_progress_indicators.dart';
 
@@ -30,13 +29,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor:Colors.white,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage( 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  MyHomePage(this.title);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -131,8 +130,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
-                                            title: "OPAC",
-                                            selectedUrl: "https://abcd.ju.edu.etcgi-bin/utf8/wxis/iah/scripts/?IsisScript=iah.xis&lang=en&base=RDA",
+                                             "OPAC",
+                                             "https://abcd.ju.edu.etcgi-bin/utf8/wxis/iah/scripts/?IsisScript=iah.xis&lang=en&base=RDA",
                                           )
                                       ));
                                     }, // Handle your callback.
@@ -194,8 +193,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                         onPressed: () {
                                                                           Navigator.of(context).push(MaterialPageRoute(
                                                                               builder: (BuildContext context) => MyWebView(
-                                                                                title: "Subscribed Journals",
-                                                                                selectedUrl: "https://www.ju.edu.et/library/?q=node/382",
+                                                                                 "Subscribed Journals",
+                                                                                 "https://www.ju.edu.et/library/?q=node/382",
                                                                               )
                                                                           ));
                                                                         },
@@ -217,8 +216,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                         onPressed: () {
                                                                           Navigator.of(context).push(MaterialPageRoute(
                                                                               builder: (BuildContext context) => MyWebView(
-                                                                                title: "Open Journals",
-                                                                                selectedUrl: "https://www.ju.edu.et/library/?q=node/383",
+                                                                                 "Open Journals",
+                                                                                 "https://www.ju.edu.et/library/?q=node/383",
                                                                               )
                                                                           ));
                                                                         },
@@ -243,8 +242,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                     onPressed: () {
                                                                       Navigator.of(context).push(MaterialPageRoute(
                                                                           builder: (BuildContext context) => MyWebView(
-                                                                            title: "Free e-Books",
-                                                                            selectedUrl: "https://www.ju.edu.et/library/?q=node/421",
+                                                                             "Free e-Books",
+                                                                             "https://www.ju.edu.et/library/?q=node/421",
                                                                           )
                                                                       ));
                                                                     },
@@ -298,8 +297,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
-                                            title: "JiT Institutional Repository",
-                                            selectedUrl: "repository.ju.edu.et/handle/123456789/1206",
+                                             "JiT Institutional Repository",
+                                             "repository.ju.edu.et/handle/123456789/1206",
                                           )
                                       ));
                                     }, // Handle your callback.
@@ -327,8 +326,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
-                                            title: "JiT Digital Library",
-                                            selectedUrl: "http://library.ju.edu.et:8080/handle/378/9",
+                                             "JiT Digital Library",
+                                             "http://library.ju.edu.et:8080/handle/378/9",
                                           )
                                       ));
                                     }, // Handle your callback.
@@ -363,8 +362,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
-                                            title: "SRS",
-                                            selectedUrl: "https://srs.ju.edu.et/",
+                                             "SRS",
+                                             "https://srs.ju.edu.et/",
                                           )
                                       ));
                                     }, // Handle your callback.
@@ -426,8 +425,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
-                                            title: "JU Navigation",
-                                            selectedUrl: "https://www.google.com/maps/place/Jimma+University/@7.6821696,36.8526477,18z/data=!4m9!1m2!2m1!1sJimma+UNiversity!3m5!1s0x17adb8c70a722351:0x4a70aa5d5253b48b!8m2!3d7.6820055!4d36.8559734!15sChBKaW1tYSBVTml2ZXJzaXR5kgEKdW5pdmVyc2l0eQ",
+                                             "JU Navigation",
+                                             "https://www.google.com/maps/place/Jimma+University/@7.6821696,36.8526477,18z/data=!4m9!1m2!2m1!1sJimma+UNiversity!3m5!1s0x17adb8c70a722351:0x4a70aa5d5253b48b!8m2!3d7.6820055!4d36.8559734!15sChBKaW1tYSBVTml2ZXJzaXR5kgEKdW5pdmVyc2l0eQ",
                                           )
                                       ));
 
@@ -496,7 +495,7 @@ class MyWebView extends StatefulWidget{
   final String selectedUrl;
 
   // const MyWebView(this.title, this.selectedUrl);
-  MyWebView({Key? key, required this.title,required this.selectedUrl}) : super(key: key);
+  MyWebView(this.title,this.selectedUrl);
   @override
   _MyWebView createState() => _MyWebView();
 }
@@ -520,8 +519,7 @@ class _MyWebView extends State<MyWebView> {
         appBar: AppBar(
           title: Text(widget.title),
           actions: [
-            NavigationControls(controller: controller),
-                           // Add this line
+            NavigationControls(controller), // Add this line
           ],
         ),
         body: Stack(
