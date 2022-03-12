@@ -331,7 +331,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
                                              "JiT Institutional Repository",
-                                             "repository.ju.edu.et/handle/123456789/1206",
+                                             "https://repository.ju.edu.et/handle/123456789/1206",
                                           )
                                       ));
                                     }, // Handle your callback.
