@@ -36,10 +36,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   webview_flutter: ^1.0.5
   flutter_colored_progress_indicators: ^1.2.0
+  flutter_launcher_icons: ^0.9.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/appicon.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -61,6 +66,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/header.png
     - assets/images/juRepositoryLogo.jpg
     - assets/images/juLink.png
     - assets/images/p_message.png

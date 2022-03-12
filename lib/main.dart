@@ -4,9 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_colored_progress_indicators/flutter_colored_progress_indicators.dart';
-
+import 'package:flutter/services.dart';
 import 'navigation_controls.dart';
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIOverlays([
+    SystemUiOverlay.bottom, //This line is used for showing the bottom bar
+  ]);
   runApp(MyApp());
 }
 
@@ -54,6 +58,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
   final _formKey = GlobalKey<FormState>();
   void _incrementCounter() {
     setState(() {
@@ -68,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -96,8 +102,9 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
 
         children: <Widget>[
-          Image.asset('assets/images/app_logo.png',
-          height: 300,
+            Image.asset('assets/images/header.png',
+            width: width,
+
           ),
           // Container(
           //     color: Colors.white24,
@@ -113,10 +120,29 @@ class _MyHomePageState extends State<MyHomePage> {
           //       ),
           //     )
           // ),
+          Container(
+           // padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
 
-          Expanded(
+            //height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            //color: Colors.white,
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.blueAccent),
+                color: Colors.white
+            ),
+          child:Center(
+          child: Container(
+            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
 
-              child:ListView(
+            alignment: Alignment.center,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width/2,
+
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.white54),
+
+            ),
+          child:ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   Container(
@@ -126,7 +152,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               margin:EdgeInsets.fromLTRB(50,50,25,0),
                               child:Column(
                                 children: <Widget>[
-                                  InkWell(
+                                  Material(
+                                  child:InkWell(
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
@@ -142,10 +169,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                       decoration: BoxDecoration(
                                         image: DecorationImage(
                                           image: AssetImage('assets/images/opac.png'),
-                                          fit: BoxFit.cover,
+                                          //fit: BoxFit.cover,
+
                                         ),
+
                                       ),
                                     ),
+                                  ),
                                   ),
                                   Text("OPAC")
                                 ],
@@ -155,7 +185,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               margin:EdgeInsets.fromLTRB(50,25,25,0),
                               child:Column(
                                 children: <Widget>[
-                                  InkWell(
+                                  Material(
+                                  child:InkWell(
                                     onTap: () {
                                       // Navigator.of(context).push(MaterialPageRoute(
                                       //     builder: (BuildContext context) => MyWebView(
@@ -278,6 +309,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
+                                  ),
                                   Text("E-Resources")
                                 ],
                               )
@@ -293,7 +325,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               margin:EdgeInsets.fromLTRB(25,50,50,0),
                               child:Column(
                                 children: <Widget>[
-                                  InkWell(
+                                  Material(
+                                  child:InkWell(
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
@@ -314,6 +347,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
+                                  ),
                                   Text("JiT Institutional Repository")
                                 ],
                               )
@@ -322,7 +356,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               margin:EdgeInsets.fromLTRB(25,25,50,0),
                               child:Column(
                                 children: <Widget>[
-                                  InkWell(
+                                  Material(
+                                  child:InkWell(
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
@@ -343,6 +378,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
+                                  ),
                                   Text("JIT Digital Library")
                                 ],
                               )
@@ -358,7 +394,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               margin:EdgeInsets.fromLTRB(50,50,25,0),
                               child:Column(
                                 children: <Widget>[
-                                  InkWell(
+                                  Material(
+                                  child:InkWell(
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
@@ -379,6 +416,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
+                                  ),
                                   Text("SRS home")
                                 ],
                               )
@@ -387,7 +425,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               margin:EdgeInsets.fromLTRB(50,25,25,0),
                               child:Column(
                                 children: <Widget>[
-                                  InkWell(
+                                  Material(
+                                  child:InkWell(
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => About(
@@ -406,6 +445,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
+                                  ),
                                   Text("About")
                                 ],
                               )
@@ -421,7 +461,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               margin:EdgeInsets.fromLTRB(25,50,50,0),
                               child:Column(
                                 children: <Widget>[
-                                  InkWell(
+                                  Material(
+                                  child:InkWell(
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => MyWebView(
@@ -443,6 +484,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
+                                  ),
                                   Text("JU Navigation")
                                 ],
                               )
@@ -451,7 +493,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               margin:EdgeInsets.fromLTRB(25,25,50,0),
                               child:Column(
                                 children: <Widget>[
-                                  InkWell(
+                                  Material(
+                                  child:InkWell(
                                     onTap: () {
                                       Navigator.of(context).push(MaterialPageRoute(
                                           builder: (BuildContext context) => Help(
@@ -470,6 +513,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       ),
                                     ),
                                   ),
+                                  ),
                                   Text("Help")
                                 ],
                               )
@@ -479,9 +523,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   )
 
                 ],
-              )
+              ),
+            ),
           ),
-
+          ),
 
         ],
 
@@ -539,16 +584,6 @@ class _MyWebView extends State<MyWebView> {
               // Add from here ...
               navigationDelegate: (navigation) {
                 final host = Uri.parse(navigation.url).host;
-                if (! host.contains('ju.edu.et')) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        'Blocking navigation to $host',
-                      ),
-                    ),
-                  );
-                  return NavigationDecision.prevent;
-                }
                 return NavigationDecision.navigate;
               },
               // ... to here.
