@@ -1,7 +1,6 @@
 # ju_repo2
 
-A new Flutter project.
-
+Flutter mobile application for Jimma University Library access
 ## Getting Started
 
 This project is a starting point for a Flutter application.
